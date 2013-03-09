@@ -3,7 +3,7 @@
 Dumps entire contents of Google Apps email accounts using OfflineIMAP.
 
 by Geoffrey Roberts  
-g.roberts@blackicemedia.com
+g.roberts@blackicemedia.com  
 geoffrey.roberts@smash.org.au
 
 v0.1 Sunday, 10 March 2013
@@ -22,7 +22,7 @@ and change dump_config[:host] to your domain.
 
 ## Usage
 
-@./dump.rb username theirPassword@
+<code>./dump.rb username theirPassword</code>
 
 Dumping a user's entire mailbox takes a long time, especially if they 
 have a lot of messages in there. Make yourself several coffees. Read 
