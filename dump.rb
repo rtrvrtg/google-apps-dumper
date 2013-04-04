@@ -56,13 +56,14 @@ class EmailDumper
   end
   
   def create_text
-    tpl = "[general]\naccounts = :::user_name:::\n\n[Account :::user_name:::]\nlocalrepository = :::user_name:::Local\nremoterepository = :::user_name:::Remote\n\n[Repository :::user_name:::Local]\ntype = Maildir\nlocalfolders = :::current_dir:::/:::user_name:::\n\n\n[Repository :::user_name:::Remote]\ntype = Gmail\nremoteuser = :::user_name:::@:::host:::\nremotepass = :::user_password:::\nnametrans = lambda x: 'INBOX.' + x"
+    tpl = "[general]\naccounts = :::user_name:::\n\n[Account :::user_name:::]\nlocalrepository = :::user_name:::Local\nremoterepository = :::user_name:::Remote\n\n[Repository :::user_name:::Local]\ntype = Maildir\nlocalfolders = :::current_dir:::/:::user_name:::\n\n\n[Repository :::user_name:::Remote]\ntype = Gmail\ncert_fingerprint = :::cert_fingerprint:::\nremoteuser = :::user_name:::@:::host:::\nremotepass = :::user_password:::\nnametrans = lambda x: 'INBOX.' + x"
     
     values = {
       :user_name => @user_name,
       :user_password => @user_password,
       :current_dir => File.expand_path(File.dirname(__FILE__)),
-      :host => $dump_config[:host]
+      :host => $dump_config[:host],
+      :cert_fingerprint => $dump_config[:cert_fingerprint],
     }
     
     template(tpl, values)

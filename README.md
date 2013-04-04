@@ -18,7 +18,15 @@ v0.1 Sunday, 10 March 2013
 ## Installation
 
 Copy *config-example.rb* to *config.rb* 
-and change dump_config[:host] to your domain.
+and change *dump_config[:host]* to your domain.
+
+Run *./getcertfingerprint.sh* to get the current SSH certificate fingerprint 
+from your email domain (currently set to Gmail by default). It will print out 
+a long bit of text, something like  
+*6d1b5b5ee0180ab493b71d3b94534b5ab937d042*
+
+Change *dump_config[:cert_fingerprint]* in your *config.rb* file to 
+whatever this script prints out.
 
 ## Usage
 
